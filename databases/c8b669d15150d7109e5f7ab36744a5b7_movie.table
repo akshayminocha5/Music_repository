@@ -1,0 +1,59 @@
+(dp1
+S'director'
+p2
+(dp3
+S'type'
+p4
+S'reference artist'
+p5
+sS'sortable'
+p6
+I4
+sS'sql'
+p7
+S'INTEGER REFERENCES artist(id) ON DELETE CASCADE'
+p8
+ssS'release_date'
+p9
+(dp10
+g4
+S'date'
+p11
+sg6
+I5
+sg7
+S'DATE'
+p12
+ssS'hero'
+p13
+(dp14
+g4
+S'reference artist'
+p15
+sg6
+I3
+sg7
+S'INTEGER REFERENCES artist(id) ON DELETE CASCADE'
+p16
+ssS'id'
+p17
+(dp18
+g4
+g17
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p19
+ssS'name'
+p20
+(dp21
+g4
+S'string'
+p22
+sg6
+I2
+sg7
+S'CHAR(512)'
+p23
+ss.

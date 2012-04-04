@@ -1,0 +1,90 @@
+timestamp: 2011-08-24T15:02:55.626000
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512)
+);
+success!
+timestamp: 2011-08-24T15:02:55.788000
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2011-08-24T15:02:55.897000
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2011-08-24T15:02:55.988000
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2011-08-24T15:02:56.096000
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2011-08-24T15:02:56.194000
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    url CHAR(512),
+    uuid CHAR(512)
+);
+success!
+timestamp: 2011-08-24T15:02:56.293000
+CREATE TABLE artist(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    artist_name CHAR(512),
+    artist_type CHAR(512)
+);
+success!
+timestamp: 2011-08-24T15:02:56.384000
+CREATE TABLE movie(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    hero INTEGER REFERENCES artist(id) ON DELETE CASCADE,
+    director INTEGER REFERENCES artist(id) ON DELETE CASCADE,
+    release_date DATE
+);
+success!
+timestamp: 2011-08-24T15:02:56.496000
+CREATE TABLE song(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    length CHAR(512),
+    singer INTEGER REFERENCES artist(id) ON DELETE CASCADE,
+    composer INTEGER REFERENCES artist(id) ON DELETE CASCADE,
+    movie INTEGER REFERENCES movie(id) ON DELETE CASCADE,
+    singing_actor INTEGER REFERENCES artist(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2011-08-24T15:02:56.718000
+CREATE TABLE rating(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user CHAR(512),
+    song_n INTEGER REFERENCES song(id) ON DELETE CASCADE,
+    rating CHAR(512)
+);
+success!
+timestamp: 2011-08-24T15:48:00.477000
+ALTER TABLE rating ADD ratingn CHAR(512);
