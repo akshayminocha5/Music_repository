@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h2> Assignment 2</h2>
+Akshay Minocha </br>
+201056161 UG2   
+{{=LI(A("Insert a Song in the Database",_href=URL(r=request,f="insong",)))}}
+{{=LI(A("Search for song with query=singer name and/or movie name",_href=URL(r=request,f="newq",)))}}
+{{pass}}

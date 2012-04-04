@@ -1,0 +1,12 @@
+{{extend 'layout.html'}}
+{{for record in records:}}
+  Singer Of the Song is - {{=record.singer.artist_name}}
+  <br/>
+  Length Of The Song Is - {{=record.length}}
+  <br/>
+  Composer Of The Song Is - {{=record.composer.artist_name}}
+  <br/>
+  Movie in which the song appears is -   {{=record.movie.name}}
+  <br/>
+  Singing Actor - {{=record.singing_actor.artist_name}}
+{{pass}}

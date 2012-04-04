@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+<h3>Songs Of the Singer Are - </h3>
+{{for row in rows:}}
+  {{=LI(A("%s" %(row.name),_href=URL(r=request,f='song_details?id=%d' %(row.id))))}}
+  </br>
+{{pass}}

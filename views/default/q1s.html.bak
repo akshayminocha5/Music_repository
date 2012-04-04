@@ -1,0 +1,8 @@
+{{extend 'layout.html'}}
+{{if rows:}}
+  {{for row in rows:}}
+    {{=row.name}}  
+    </br>  
+{{else:}}
+Sorry No matching entries in the records is found
+{{pass}}

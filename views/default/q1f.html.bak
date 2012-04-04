@@ -1,0 +1,4 @@
+
+{{extend 'layout.html'}}
+<h1>This is the default/q1f.html template</h1>
+{{=BEAUTIFY(response._vars)}}
